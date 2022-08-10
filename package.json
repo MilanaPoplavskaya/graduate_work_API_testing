@@ -1,0 +1,21 @@
+{
+  "name": "graduate_work_api_testing",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "jest:test": "jest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/jest": "^28.1.6",
+    "@types/superagent": "^4.1.15",
+    "jest": "^28.1.3",
+    "superagent": "^8.0.0",
+    "ts-jest": "^28.0.7",
+    "typescript": "^4.7.4"
+  }
+}
