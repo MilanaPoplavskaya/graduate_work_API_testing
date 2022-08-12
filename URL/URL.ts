@@ -1,9 +1,11 @@
+const BASE_URL: string = "https://jsonplaceholder.typicode.com/";
+
 export const URL = {
-    allPosts: "https://jsonplaceholder.typicode.com/posts/",
-    allUsers: "https://jsonplaceholder.typicode.com/users/",
-    allComments: "https://jsonplaceholder.typicode.com/comments/",
-    singleUser: "https://jsonplaceholder.typicode.com/users/2",
-    singleComment: "https://jsonplaceholder.typicode.com/comments/8",
+    allPosts: `${BASE_URL}posts/`,
+    allUsers: `${BASE_URL}users/`,
+    allComments: `${BASE_URL}comments/`,
+    singleUser: `${BASE_URL}users/2`,
+    singleComment: `${BASE_URL}comments/8`,
 };
 
 

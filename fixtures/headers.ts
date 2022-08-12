@@ -3,14 +3,11 @@ interface IHeaders {
     type: string,
     pragma: string,
     connection: string
-    ok: boolean
 }
 
-export const headers: IHeaders = {
+export const HEADERS: IHeaders = {
     header: "Content-Type",
     type: "application/json",
     pragma: "no-cache",
     connection: "close",
-    ok: true,
 };
-

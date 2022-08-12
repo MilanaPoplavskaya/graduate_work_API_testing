@@ -1,1 +1,1 @@
-export const emptyBody: object = {};
+export const EMPTY_BODY: object = {};

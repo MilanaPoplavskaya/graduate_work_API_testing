@@ -1,1 +1,1 @@
-export const title: string = "Carpe diem memento mori";
+export const TITLE: string = "Carpe diem memento mori";

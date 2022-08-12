@@ -13,16 +13,16 @@ interface ICreatedUser {
     createdEmail: string,
 }
 
-export const existingUser: IExistingUser = {
+export const EXISTING_USER: IExistingUser = {
     existingName: "Ervin Howell",
     existingUsername: "Antonette",
 };
-export const createdUser: ICreatedUser = {
+export const CREATED_USER: ICreatedUser = {
     createdName: "Milana",
     createdUsername: "Lana",
     createdEmail: "lana123@gmail.com",
 };
 
-export const userNameOfComment: IUserNameOfComment = {
+export const USER_NAME_OF_COMMENT: IUserNameOfComment = {
     nameLeftComment: "et omnis dolorem",
 };

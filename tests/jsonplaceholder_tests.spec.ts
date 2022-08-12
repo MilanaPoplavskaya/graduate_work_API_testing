@@ -1,19 +1,19 @@
 import superagent from "superagent";
 import { URL } from "../URL/URL";
-import { statusCodes } from "../fixtures/statusCodes";
-import { title } from "../fixtures/titles";
+import { STATUS_CODES } from "../fixtures/statusCodes";
+import { TITLE } from "../fixtures/titles";
 import { ID } from "../fixtures/id";
-import { headers } from "../fixtures/headers";
-import { existingUser, createdUser, userNameOfComment } from "../fixtures/users";
-import { emptyBody } from "../fixtures/body";
+import { HEADERS } from "../fixtures/headers";
+import { EXISTING_USER, CREATED_USER, USER_NAME_OF_COMMENT } from "../fixtures/users";
+import { EMPTY_BODY } from "../fixtures/body";
 
 const { idOfPost, userId, postIdOfComment, userReplacementId, commentId } = ID;
 const { allPosts, allUsers, allComments, singleUser, singleComment } = URL;
-const { created, OK } = statusCodes;
-const { header, type, pragma, connection, ok } = headers;
-const { createdName, createdUsername, createdEmail } = createdUser;
-const { existingName, existingUsername } = existingUser;
-const { nameLeftComment } = userNameOfComment;
+const { created, OK } = STATUS_CODES;
+const { header, type, pragma, connection } = HEADERS;
+const { createdName, createdUsername, createdEmail } = CREATED_USER;
+const { existingName, existingUsername } = EXISTING_USER;
+const { nameLeftComment } = USER_NAME_OF_COMMENT;
 
 
 describe("Testing jsonplaceholder", () => {
@@ -21,7 +21,7 @@ describe("Testing jsonplaceholder", () => {
         const resultOfRequest = await superagent.post(allPosts)
             .set(header, type)
             .send({
-                title: title,
+                title: TITLE,
             });
         expect(resultOfRequest.body.id).toEqual(idOfPost);
         expect(resultOfRequest.status).toBe(created);
@@ -33,7 +33,6 @@ describe("Testing jsonplaceholder", () => {
             .send({ createdName, createdUsername, createdEmail });
         expect(resultOfRequest.body.id).toEqual(userId);
         expect(resultOfRequest.body.createdName).toEqual(createdName);
-        expect(resultOfRequest.ok).toBe(ok);
         expect(resultOfRequest.status).toBe(created);
     });
     test("GET request: check user", async () => {
@@ -41,7 +40,6 @@ describe("Testing jsonplaceholder", () => {
         expect(resultOfRequest.status).toEqual(OK);
         expect(resultOfRequest.body.name).toEqual(existingName);
         expect(resultOfRequest.body.username).toBe(existingUsername);
-        console.log(resultOfRequest.body);
     });
     test("GET request: check comments", async () => {
         const resultOfRequest = await superagent.get(allComments);
@@ -71,14 +69,13 @@ describe("Testing jsonplaceholder", () => {
     });
     test("DELETE request: delete comment", async () => {
         const resultOfRequest = await superagent.delete(singleComment);
-        expect(resultOfRequest.body).toEqual(emptyBody);
+        expect(resultOfRequest.body).toEqual(EMPTY_BODY);
         expect(resultOfRequest.status).toBe(OK);
     });
     test("DELETE request: delete user", async () => {
         const resultOfRequest = await superagent.delete(singleUser);
-        expect(resultOfRequest.body).toEqual(emptyBody);
+        expect(resultOfRequest.body).toEqual(EMPTY_BODY);
         expect(resultOfRequest.status).toBe(OK);
-        expect(resultOfRequest.ok).toBe(ok);
     });
     test("PATCH request: updating user information", async () => {
         const resultOfRequest = await superagent.patch(singleUser)
@@ -91,8 +88,8 @@ describe("Testing jsonplaceholder", () => {
     test("PATCH request: updating comment", async () => {
         const resultOfRequest = await superagent.patch(singleComment)
             .set(header, type)
-            .send({ title: title });
-        expect(resultOfRequest.body.title).toBe(title);
+            .send({ title: TITLE });
+        expect(resultOfRequest.body.title).toBe(TITLE);
         expect(resultOfRequest.body.name).toBe(nameLeftComment);
         expect(resultOfRequest.status).toBe(OK);
     });

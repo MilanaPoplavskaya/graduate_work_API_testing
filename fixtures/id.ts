@@ -12,8 +12,4 @@ export const ID: Iid = {
     postIdOfComment: 2,
     commentId: 8,
     userReplacementId: 2,
-
 };
-
-
-

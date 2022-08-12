@@ -3,7 +3,7 @@ interface IStatusCode {
     OK: number
 }
 
-export const statusCodes: IStatusCode = {
+export const STATUS_CODES: IStatusCode = {
     created: 201,
     OK: 200,
 };
